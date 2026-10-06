@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hadnagy Gumi | Gumiabroncsok</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="brand" href="#"><img src="logo.png" alt="Hadnagy Gumi"></a>
+<nav><a href="#termekek">Gumik</a><a href="#hogyan">Hogyan működik?</a><a href="#szerviz">Szerviz</a><a href="#kapcsolat">Kapcsolat</a></nav>
+<button class="cart-btn" onclick="openCart()">Kosár <b class="cart-count">0</b></button><button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div></header>
+<section class="hero"><div class="hero-grid container"><div>
+<div class="eyebrow">HADNAGY GUMI · GUMISZERVIZ</div>
+<h1>Gumik, amikre<br><em>számíthatsz.</em></h1>
+<p>Találd meg a megfelelő abroncsot méret, szezon és márka alapján. Állítsd össze a kosarad, küldd el rendelési igényedet, a részleteket pedig személyesen egyeztetjük.</p>
+<div class="actions"><a class="btn primary" href="#termekek">Gumik keresése <span>→</span></a><a class="btn light" href="#hogyan">Így működik</a></div>
+<div class="hero-stats"><div><strong>4 000+</strong><span>elégedett ügyfél</span></div><div><strong>✓</strong><span>szakértő segítség</span></div><div><strong>RO</strong><span>helyi kiszolgálás</span></div></div>
+</div><div class="hero-art"><div class="giant-tire"></div><div class="hero-tag"><small>AKTUÁLIS KÍNÁLAT</small><strong>Prémium abroncsok</strong><span>Egyeztess velünk az aktuális készletről.</span></div></div></div></section>
+
+<section class="finder container"><div class="finder-top"><div><span class="eyebrow dark">GYORS KERESÉS</span><h2>Találd meg a gumidat</h2></div><span id="resultCount">8 termék</span></div>
+<div class="filters"><label>Méret<select id="sizeFilter"><option value="">Minden méret</option><option>205/55 R16</option><option>195/65 R15</option><option>225/45 R17</option><option>215/60 R17</option><option>235/45 R18</option></select></label>
+<label>Szezon<select id="seasonFilter"><option value="">Minden szezon</option><option>Nyári</option><option>Téli</option><option>Négyévszakos</option></select></label>
+<label>Márka<select id="brandFilter"><option value="">Minden márka</option><option>Michelin</option><option>Continental</option><option>Hankook</option><option>Goodyear</option><option>Bridgestone</option></select></label>
+<label>Rendezés<select id="sortFilter"><option value="featured">Ajánlott</option><option value="priceAsc">Ár ↑</option><option value="priceDesc">Ár ↓</option><option value="name">Név</option></select></label></div></section>
+
+<section class="products container" id="termekek"><div class="section-title"><div><span class="eyebrow dark">KÍNÁLAT</span><h2>Népszerű abroncsok</h2></div><button onclick="resetFilters()" class="text-btn">Szűrők törlése ↗</button></div><div class="product-grid" id="productsGrid"></div></section>
+
+<section class="how" id="hogyan"><div class="container"><span class="eyebrow">EGYSZERŰ FOLYAMAT</span><h2>Nem kell online fizetned.</h2><div class="steps"><div><b>01</b><h3>Kiválasztod</h3><p>Szűrd a kínálatot és válaszd ki a kívánt abroncsokat.</p></div><div><b>02</b><h3>Kosárba teszed</h3><p>Többféle terméket és tetszőleges mennyiséget is kérhetsz.</p></div><div><b>03</b><h3>Elküldöd az igényt</h3><p>Megadod az elérhetőségedet és a címedet.</p></div><div><b>04</b><h3>Mi felhívunk</h3><p>Egyeztetjük a készletet, árat, szállítást és átvételt.</p></div></div></div></section>
+
+<section class="service container" id="szerviz"><div><span class="eyebrow dark">HADNAGY GUMI</span><h2>A webshop csak a kezdet.</h2></div><p>A rendelési igényed beérkezik hozzánk, mi pedig személyesen intézzük a továbbiakat. Így mindig van lehetőség a megfelelő abroncs, szállítás és gumiszerelés egyeztetésére.</p></section>
+<section class="contact container" id="kapcsolat"><div><span class="eyebrow dark">KÉRDÉSED VAN?</span><h2>Beszéljünk.</h2></div><div><a href="tel:+40000000000">+40 000 000 000</a><small>H–P · 08:00–17:00</small></div></section>
+<footer><div class="container foot"><img src="logo.png"><span>© 2026 Hadnagy Gumi</span><span>Adatvédelem · ÁSZF</span></div></footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div><aside class="cart" id="cart"><div class="cart-head"><div><span class="eyebrow dark">RENDELÉSI IGÉNY</span><h2>Kosár</h2></div><button onclick="closeCart()">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-bottom"><div><span>Tájékoztató összeg</span><strong id="cartTotal">0 LEI</strong></div><p>A végleges ár és szállítás a telefonos egyeztetéskor kerül megerősítésre.</p><button class="btn primary full" onclick="openOrder()">Rendelési igény elküldése →</button></div></aside>
+
+<div class="modal" id="orderModal"><div class="modal-card"><button class="modal-x" onclick="closeOrder()">×</button><span class="eyebrow dark">KAPCSOLAT</span><h2>Hova keressünk?</h2><p>Adataidat a rendelési igény feldolgozásához és – megfelelő hozzájárulás esetén – későbbi marketingkommunikációhoz kezeljük.</p>
+<form onsubmit="submitOrder(event)">
+<div class="form-grid"><label>Teljes név *<input id="name" required></label><label>Telefonszám *<input id="phone" required placeholder="+40 ..."></label><label>E-mail<input id="email" type="email"></label>
+<label>Megye *<select id="county" required><option value="">Válassz megyét...</option></select></label><label>Település *<select id="city" required disabled><option>Előbb válassz megyét...</option></select></label><label>Irányítószám<input id="zip" inputmode="numeric" maxlength="6" placeholder="Automatikusan kitöltve"></label></div>
+<label>Cím *<input id="address" required placeholder="Utca, házszám"></label><label>Megjegyzés<textarea id="note" placeholder="Pl. gumiszerelést is kérek..."></textarea></label>
+<label class="consent"><input type="checkbox" required> Elfogadom az adatkezelési tájékoztatót.</label><label class="consent optional"><input id="marketing" type="checkbox"> Szeretnék később ajánlatokat és akciókat kapni.</label>
+<button class="btn primary full">Rendelési igény elküldése</button></form></div></div>
+<script src="script.js?v=6"></script></body></html>
